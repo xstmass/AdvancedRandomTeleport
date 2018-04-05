@@ -1,0 +1,9 @@
+name: AdvancedRandomTeleport
+authors: [MrMaga, planet0111, MaxCode]
+main: me.mrmaga.art.Main
+version: 1.0
+description: Улучшенная рандомная телепортация
+commands:
+  randomteleport:
+    description: 'Рандомная телепортация'
+    aliases: [rtp, rp, randomtp, wild]
