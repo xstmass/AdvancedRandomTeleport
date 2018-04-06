@@ -21,9 +21,10 @@ public class CooldownManager {
     }
 
     public long getWaitTime(String name) {
+        name = name.toLowerCase();
         if (!cd.containsKey(name)) {
             return -1;
         }
-        return cd.get(name.toLowerCase()) - System.currentTimeMillis();
+        return cd.get(name) - System.currentTimeMillis();
     }
 }
