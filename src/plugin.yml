@@ -1,7 +1,8 @@
 name: AdvancedRandomTeleport
 authors: [MrMaga, planet0111, MaxCode]
 main: me.mrmaga.art.Main
-version: 1.0
+version: 1.01
+depend: [WorldGuard, WorldEdit]
 description: Улучшенная рандомная телепортация
 commands:
   randomteleport:
