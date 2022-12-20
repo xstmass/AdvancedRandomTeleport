@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class LanguageConfig extends CustomConfig {
 
-    private HashMap<String, String> messages;
+    private final HashMap<String, String> messages;
 
     public LanguageConfig(Main main) {
         super(main, "language", true);

@@ -7,9 +7,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 
 public class CustomConfig {
+    private final File file;
     YamlConfiguration yml;
     Main plugin;
-    private File file;
 
     public CustomConfig(Main plugin, String name, boolean isResource) {
         this.file = new File(plugin.getDataFolder(), name + ".yml");

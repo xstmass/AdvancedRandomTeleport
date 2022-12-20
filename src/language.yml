@@ -4,7 +4,7 @@ messages:
   player-not-online: '&cИгрок &e%player% &cне в сети!'
   wait-cooldown: '&cВы сможете использовать это снова только через &a%time%'
   world-disabled: '&cРандомную телепортацию нельзя использовать в этом мире!'
-  teleport-self: '&fВы рандомно телепортировались на координаты: &c%coords%'
+  teleport-self: '&fРандомная телепортация на: &c%coords%'
   teleported-by-other: '&fВас рандомно телепортировали на координаты: &c%coords%'
   you-teleported-other: '&eВы рандомно телепортировали %player% &eна координаты &a%coords%'
   reload: '&aКонфигурация и сообщения успешно обновлены!'

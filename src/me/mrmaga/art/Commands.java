@@ -12,10 +12,10 @@ import org.bukkit.entity.Player;
 
 public class Commands implements CommandExecutor {
 
-    private MainConfig config;
-    private LanguageConfig lang;
-    private TeleportManager tm;
-    private CooldownManager cm;
+    private final MainConfig config;
+    private final LanguageConfig lang;
+    private final TeleportManager tm;
+    private final CooldownManager cm;
 
     Commands(Main main) {
         this.config = main.getMainConfig();
@@ -30,11 +30,16 @@ public class Commands implements CommandExecutor {
             sender.sendMessage(lang.getMsg("only-players"));
             return true;
         }
-        if (args.length >= 1 && args[0].equalsIgnoreCase("reload") && sender.hasPermission("art.reload")) {
-            config.reload();
-            lang.reload();
-            sender.sendMessage(lang.getPrefixedMsg("reload"));
-            return true;
+        if (args.length >= 1) {
+            if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("art.reload")) {
+                config.reload();
+                lang.reload();
+                sender.sendMessage(lang.getPrefixedMsg("reload"));
+                return true;
+            } else if (args[0].equalsIgnoreCase("randomtest") && sender.hasPermission("art.rendomtest")) {
+                tm.tryRandom(args[1]);
+                return true;
+            }
         }
         Player player = null;
         boolean self = true;
@@ -61,18 +66,26 @@ public class Commands implements CommandExecutor {
             return true;
         }
         boolean cooldownEnabled = config.isCooldownEnabled() && !player.hasPermission("art.bypasscd");
-        if (cooldownEnabled) {
-            long time = cm.getWaitTime(player.getName());
-            if (time > 0) {
-                sender.sendMessage(lang.getPrefixedMsg("wait-cooldown").replace("%time%", Utils.formatTime(time)));
-                return true;
+        if (self) {
+            if (cooldownEnabled) {
+                long time = cm.getWaitTime(player.getName());
+                if (time > 0) {
+                    sender.sendMessage(lang.getPrefixedMsg("wait-cooldown").replace("%time%", Utils.formatTime(time)));
+                    return true;
+                }
             }
         }
-        String coords = tm.randomTeleport(player);
+        String coords = null;
+        try {
+            coords = tm.randomTeleport(player);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assert coords != null;
         player.sendMessage(lang.getPrefixedMsg(self ? "teleport-self" : "teleported-by-other").replace("%coords%", coords));
-        if (!self) player.sendMessage(lang.getPrefixedMsg("you-teleported-other")
+        /*if (!self) player.sendMessage(lang.getPrefixedMsg("you-teleported-other")
                 .replace("%player%", player.getDisplayName())
-                .replace("%coords%", coords));
+                .replace("%coords%", coords));*/
         if (cooldownEnabled) {
             cm.addCooldown(player);
         }

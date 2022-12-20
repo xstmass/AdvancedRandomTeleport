@@ -45,7 +45,7 @@ public class Main extends JavaPlugin {
     public WorldGuardPlugin getWorldGuard() {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("WorldGuard");
 
-        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
+        if (!(plugin instanceof WorldGuardPlugin)) {
             return null;
         }
 

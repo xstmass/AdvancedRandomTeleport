@@ -13,7 +13,7 @@ public class Utils {
     public static String unColor(String msg) {
         return ChatColor.stripColor(msg);
     }
-    
+
     public static boolean containsIgnoreCase(Collection<String> collection, String str) {
         for (String s : collection) {
             if (s.equalsIgnoreCase(str)) {

@@ -28,7 +28,7 @@ public class MainConfig extends CustomConfig {
 
     public boolean isWGEnabled() {
         try {
-            return yml.getBoolean("enable-worldguard-cheks");
+            return yml.getBoolean("enable-worldguard-checks");
         } catch (NullPointerException npe) {
             return false;
         }

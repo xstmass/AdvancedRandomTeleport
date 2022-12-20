@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class CooldownManager {
 
-    private MainConfig config;
-    private HashMap<String, Long> cd;
+    private final MainConfig config;
+    private final HashMap<String, Long> cd;
 
     public CooldownManager(Main main) {
         this.config = main.getMainConfig();

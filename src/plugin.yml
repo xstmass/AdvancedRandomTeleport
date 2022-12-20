@@ -1,10 +1,10 @@
 name: AdvancedRandomTeleport
-authors: [MrMaga, planet0111, MaxCode]
+authors: [ MrMaga, planet0111, MaxCode, Christmas ]
 main: me.mrmaga.art.Main
-version: 1.01
-depend: [WorldGuard, WorldEdit]
+version: 1.2
+depend: [ WorldGuard, WorldEdit ]
 description: Улучшенная рандомная телепортация
 commands:
   randomteleport:
     description: 'Рандомная телепортация'
-    aliases: [rtp, rp, randomtp, wild]
+    aliases: [ rtp, rp, randomtp, wild ]
